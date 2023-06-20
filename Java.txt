@@ -1,0 +1,23 @@
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+
+public class DnsClient {
+
+    public static void main(String[] args) {
+        String dnsServer = "8.8.8.8"; // Replace with your DNS server IP
+        String hostname = "example.com"; // Replace with the hostname you want to resolve
+
+        try {
+            // Set the DNS server
+            System.setProperty("dns.server", dnsServer);
+
+            // Resolve the hostname
+            InetAddress address = InetAddress.getByName(hostname);
+
+            // Display the IP address
+            System.out.println("Resolved IP address: " + address.getHostAddress());
+        } catch (UnknownHostException e) {
+            e.printStackTrace();
+        }
+    }
+}
